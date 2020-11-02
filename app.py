@@ -32,9 +32,11 @@ def accept_task(taskid):
 def accept_tasks():
     if request.method == 'POST':
         taskids = request.get_json()
+        print(taskids)
         for tid in taskids['tids']:
             print(f"Accepting Task {tid}")
             database.accept_task(tid)
+    return jsonify({"success":True})
 
 
 
