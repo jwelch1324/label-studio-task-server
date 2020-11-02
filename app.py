@@ -28,6 +28,15 @@ def accept_task(taskid):
     database.accept_task(taskid)
     return jsonify({"success": True})
 
+@app.route("/api/acceptasks",methods=['POST'])
+def accept_tasks():
+    if request.method == 'POST':
+        taskids = request.get_json()
+        for tid in taskids['tids']:
+            print(f"Accepting Task {tid}")
+            database.accept_task(tid)
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5002)
