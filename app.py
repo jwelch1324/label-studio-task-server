@@ -28,7 +28,7 @@ def accept_task(taskid):
     database.accept_task(taskid)
     return jsonify({"success": True})
 
-@app.route("/api/acceptasks",methods=['POST'])
+@app.route("/api/accepttasks",methods=['POST'])
 def accept_tasks():
     if request.method == 'POST':
         taskids = request.get_json()
